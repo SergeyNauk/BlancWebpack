@@ -7,5 +7,3 @@ let render = new Render(data);
 let listener = new Listener(data,render);
 listener.initApp();
 
-
-console.log('Hello webpack 1112');

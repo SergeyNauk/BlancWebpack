@@ -1,14 +1,7 @@
-
-
-console.log('123456');
-
-
-
-        class Data {
-            constructor(){
-                this.message = '';
-            }
-        }
-
+ class Data {
+     constructor(){
+         this.alarmDate = '';
+     }
+ }
 
 export default Data;

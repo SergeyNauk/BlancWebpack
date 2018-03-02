@@ -1,31 +1,66 @@
+class Listener {
+    constructor(data, render) {
+        this.data = data;
+        this.render = render;
 
-console.log('listener999');
+        this.createAlarmClock = document.querySelector('.createAlarmClock');
+        this.inputDate = document.querySelector('.inputDate');
+        this.inputTime = document.querySelector('.inputTime');
 
+        this.interval = setInterval(()=>{
+            this.alarmWatcher();
+        },2000);
+    }
 
-        class Listener {
-            constructor(data, render){
-                this.data = data;
-                this.render = render;
+    alarmWatcher() {
+        let dateNow = new Date();
 
-                this.button = document.querySelector('.button');
-                this.input = document.querySelector('.input');
-            }
+        let allAlarmCounter = document.querySelectorAll('.alarmClock');
+        let arrAlarmCounter = [...allAlarmCounter];
 
-            initApp() {
-                this.button.addEventListener('click', ()=>{
-                    this.vereficateMess()
-                })
-            }
+        //console.log(arrAlarmCounter);
 
-            vereficateMess() {
-                let message = this.input.value.trim();
+        if (arrAlarmCounter.length > 0) {
+            arrAlarmCounter.forEach((elem)=>{
+               let dateAlarm = new Date(elem.getAttribute('data-timeAlarm'));
 
-                if (message != '') {
-                   this.data.message = message;
-                   this.render.renderMessage();
-                }
-            }
+                if (dateNow > dateAlarm){
+                   alert('work Alarm counter');
+                   elem.remove();
+               }
+            })
         }
 
+
+        //console.log(allAlarmCounter.length);
+    }
+
+
+    initApp() {
+        this.createAlarmClock.addEventListener('click', () => {
+            this.vereficateMess()
+        })
+    }
+
+    vereficateMess() {
+        let date = this.inputDate.value;
+        let time = this.inputTime.value;
+
+        let dateNow = new Date();
+        let alarmDate = new Date(date);
+        let timeParse = time.split(':');
+
+        alarmDate.setHours(timeParse[0]);
+        alarmDate.setMinutes(timeParse[1]);
+
+
+        if (alarmDate > dateNow) {
+            this.data.alarmDate = alarmDate;
+
+            this.render.renderAlarmClock();
+            //console.log(this.data.alarmDate);
+        }
+    }
+}
 
  export default Listener;

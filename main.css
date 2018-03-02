@@ -45,8 +45,8 @@ header {
   background-color: #00796B; }
 
 .wrapperH6 {
-  width: 15%;
-  height: 15%;
+  width: 50%;
+  height: 30%;
   position: absolute;
   top: 0;
   left: 0;
@@ -58,6 +58,34 @@ header {
   font-size: 200%; }
 
 main {
-  margin-top: 1%; }
+  margin-top: 1%;
+  margin-left: 5%; }
+
+.alarmClock {
+  position: relative;
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 440px;
+  height: 25px;
+  background-color: #689F38;
+  color: white; }
+  .alarmClock .deleteBtn {
+    margin-left: 10px; }
+  .alarmClock .showNotes {
+    margin-right: 10px; }
+
+.firstDiv {
+  display: none; }
+
+.inputNotes {
+  position: absolute;
+  color: yellow;
+  bottom: 30px;
+  display: block;
+  width: 440px;
+  height: 150px;
+  overflow: hidden;
+  background-color: coral; }
 
 /*# sourceMappingURL=main.css.map */
